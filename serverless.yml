@@ -1,0 +1,21 @@
+service:
+  name: hackday
+#app: your-app-name
+#tenant: your-tenant-name
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  graphql:
+    handler: handler.graphqlHandler
+    events:
+      - http:
+          method: post
+          path: graphql
+          cors: true
